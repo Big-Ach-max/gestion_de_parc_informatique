@@ -1,0 +1,29 @@
+{% include 'parc_informatique/include/begin_page.html' %}
+
+<h1>Bienvenue sur l'application de gestion de parc informatique</h1>
+<p><a href="{% url 'parc_informatique:ajouter_appareil' %}">➕ Ajouter un appareil</a></p>
+<table border="1" style="width: 100%;">
+    <tr>
+        <th>Nom</th>
+        <th>Type</th>
+        <th>Marque</th>
+        <th>Modèle</th>
+        <th>Numéro de série</th>
+        <th>Etat</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    <p>{{ utilisateur.nom }}</p>
+    {% for appareil in appareils %}
+    <tr>
+        <td><a href="{% url 'parc_informatique:afficher_appareil' appareil.id %}">{{ appareil.nom }}</a></td>
+        <td>{{ appareil.type }}</td>
+        <td>{{ appareil.marque }}</td>
+        <td>{{ appareil.modele }}</td>
+        <td>{{ appareil.numero_serie }}</td>
+        <td>{{ appareil.etat }}</td>
+        <td><a href="{% url 'parc_informatique:modifier_appareil' appareil.id %}">✏️</a></td>
+        <td><a href="{% url 'parc_informatique:supprimer_appareil' appareil.id %}">❌</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% include 'parc_informatique/include/begin_page.html' %}

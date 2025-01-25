@@ -1,0 +1,25 @@
+{% include "parc_informatique/include/begin_page.html" %}
+
+<h1>{{ appareil.nom }}</h1>
+
+<p><strong>Nom :</strong> {{ appareil.nom }}</p>
+<p><strong>Type :</strong> {{ appareil.type }}</p>
+<p><strong>Marque :</strong> {{ appareil.marque }}</p>
+<p><strong>Modèle :</strong> {{ appareil.modele }}</p>
+<p><strong>Numéro de série :</strong> {{ appareil.numero_serie }}</p>
+<p><strong>État :</strong> {{ appareil.etat }}</p>
+<p><strong>Date d'acquisition :</strong> {{ appareil.date_acquisition }}</p>
+
+<!-- Section Localisation -->
+<p><strong>Localisation :</strong></p>
+<ul>
+    <li><strong>Nom :</strong> {{ appareil.localisation.nom }}</li>
+    <li><strong>Étage :</strong> {{ appareil.localisation.etage }}</li>
+    <li><strong>Bâtiment :</strong> {{ appareil.localisation.batiment }}</li>
+</ul>
+
+<p><a href="{% url 'parc_informatique:envoyer_en_maintenance' appareil.id %}">⚙️ Envoyer en maintenance</a></p>
+<p><a href="{% url 'parc_informatique:historique_maintenance' appareil.id %}">⚙️ Afficher l'historique de maintenance</a></p>
+<p><a href="{% url 'parc_informatique:index' %}">&laquo; Revenir à la liste des appareils</a></p>
+
+{% include "parc_informatique/include/end_page.html" %}

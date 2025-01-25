@@ -1,0 +1,23 @@
+{% include "parc_informatique/include/begin_page.html" %}
+
+<h1>Historique de maintenance pour {{ appareil.nom }}</h1>
+
+<p><a href="{% url 'parc_informatique:afficher_appareil' appareil.id %}">&laquo; Revenir à l'appareil</a></p>
+
+{% if appareil.maintenances.exists %}
+    <ul>
+        {% for maintenance in appareil.maintenances.all %}
+        <li>
+            <strong>Date d'intervention :</strong> {{ maintenance.date_intervention }} | 
+            <strong>Statut :</strong> {{ maintenance.statut }} | 
+            <strong>Technicien :</strong> {{ maintenance.technicien }} | 
+            <strong>Description :</strong> {{ maintenance.description }}
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucune maintenance enregistrée pour cet appareil.</p>
+{% endif %}
+
+
+{% include "parc_informatique/include/end_page.html" %}

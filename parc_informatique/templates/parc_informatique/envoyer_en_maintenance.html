@@ -1,0 +1,17 @@
+{% include "parc_informatique/include/begin_page.html" %}
+
+<h1>Envoyer en maintenance : {{ appareil.nom }}</h1>
+<p><strong>Type :</strong> {{ appareil.type }}</p>
+<p><strong>Marque :</strong> {{ appareil.marque }}</p>
+<p><strong>Modèle :</strong> {{ appareil.modele }}</p>
+<p><strong>Numéro de série :</strong> {{ appareil.numero_serie }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Envoyer en maintenance</button>
+</form>
+
+<p><a href="{% url 'parc_informatique:afficher_appareil' appareil.id %}">Retourner à l'appareil</a></p>
+
+{% include "parc_informatique/include/end_page.html" %}

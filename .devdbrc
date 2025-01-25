@@ -1,0 +1,6 @@
+[
+  {
+    "type": "sqlite",
+    "path": "/home/artilleur/Documents/Python/Django/gestion_parc/db.sqlite3"
+  }
+]

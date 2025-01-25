@@ -1,0 +1,10 @@
+{% include 'parc_informatique/include/begin_page.html' %}
+
+    <h1>Gestion de parc informatique</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Ajouter">
+    </form>
+
+{% include 'parc_informatique/include/end_page.html' %}
