@@ -1,0 +1,170 @@
+/* === Global Styles === */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc; /* Fond clair */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* === Headers === */
+h1, h2, h3 {
+    color: #27ae60;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* === Links === */
+a {
+    color: #27ae60;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #1e874a;
+    text-decoration: underline;
+}
+
+/* === Buttons === */
+button,
+input[type="submit"],
+button[type="button"] {
+    background-color: #27ae60; /* Couleur dominante */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin: 5px 0;
+    text-align: center;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: #1e874a; /* Couleur légèrement plus sombre au survol */
+    transform: scale(1.05);
+}
+
+button:active,
+input[type="submit"]:active {
+    background-color: #166736; /* Couleur plus sombre lors du clic */
+    transform: scale(0.95);
+}
+
+button[disabled],
+input[type="submit"][disabled] {
+    background-color: #95a5a6; /* Gris pour un état désactivé */
+    cursor: not-allowed;
+}
+
+/* === Special Buttons (Link-Like) === */
+button.link-button {
+    background-color: transparent;
+    color: #27ae60;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+button.link-button:hover {
+    color: #1e874a;
+    text-decoration: none;
+}
+
+/* === Forms === */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 5px rgba(39, 174, 96, 0.3);
+    outline: none;
+}
+
+/* === Tables === */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #27ae60;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+footer a {
+    color: #27ae60;
+}
+
+footer a:hover {
+    color: #1e874a;
+}
+
+
+p strong {
+    color: #27ae60; /* Vert pour les labels */
+    font-weight: bold;
+}
+
+ul li strong {
+    color: #27ae60; /* Labels verts dans les listes */
+}
