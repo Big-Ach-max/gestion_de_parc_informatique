@@ -5,8 +5,8 @@ from django.utils import timezone
 
 class Local(models.Model):
     nom = models.CharField(max_length=100)
-    etage = models.CharField(max_length=50, blank=True, null=True)
-    batiment = models.CharField(max_length=100, blank=True, null=True)
+    etage = models.CharField(max_length=50, blank=True)
+    batiment = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return f"{self.nom} ({self.batiment}, étage {self.etage})"
@@ -16,8 +16,8 @@ class Utilisateur(models.Model):
     nom = models.CharField(max_length=100)
     prenom = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    telephone = models.CharField(max_length=15, blank=True, null=True)
-    poste = models.CharField(max_length=100, blank=True, null=True)
+    telephone = models.CharField(max_length=15, blank=True)
+    poste = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return f"{self.nom} {self.prenom}"
@@ -37,8 +37,8 @@ class Appareil(models.Model):
 
     nom = models.CharField(max_length=100)
     type = models.CharField(max_length=50, choices=TYPE_CHOICES)
-    marque = models.CharField(max_length=100, blank=True, null=True)
-    modele = models.CharField(max_length=100, blank=True, null=True)
+    marque = models.CharField(max_length=100, blank=True)
+    modele = models.CharField(max_length=100, blank=True)
     numero_serie = models.CharField(max_length=100, unique=True)
     etat = models.CharField(max_length=50, choices=ETAT_CHOICES, default="Disponible")
     date_acquisition = models.DateField(blank=True, null=True)

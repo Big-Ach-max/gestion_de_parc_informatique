@@ -5,6 +5,9 @@ from parc_informatique.forms import AppareilForm, HistoriqueMaintenanceForm, Mod
 from parc_informatique.models import Appareil, HistoriqueMaintenance
 
 
+PARC_INFORMATIQUE_INDEX = "parc_informatique:index"
+
+
 def index(request):
     context = {
         "appareils": Appareil.objects.all().order_by("nom"),
@@ -26,7 +29,7 @@ def ajouter_appareil(request):
 
         if form.is_valid():
             form.save()
-            return redirect("parc_informatique:index")
+            return redirect(PARC_INFORMATIQUE_INDEX)
     else:
         form = AppareilForm()
     context = {"form": form}
@@ -40,7 +43,7 @@ def modifier_appareil(request, appareil_id):
 
         if form.is_valid():
             form.save()
-            return redirect("parc_informatique:index")
+            return redirect(PARC_INFORMATIQUE_INDEX)
     else:
         form = ModificationAppareilForm(instance=appareil)
 
@@ -49,8 +52,10 @@ def modifier_appareil(request, appareil_id):
 
 def supprimer_appareil(request, appareil_id):
     appareil = Appareil.objects.get(pk=appareil_id)
-    appareil.delete()
-    return redirect("parc_informatique:index")
+    if request.method == "POST":
+        appareil.delete()
+        return redirect(PARC_INFORMATIQUE_INDEX)
+    return render(request, "parc_informatique/confirmer_suppression.html", {"appareil": appareil})
 
 
 
